@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function person(fname,lname,age){
+        this.fname = fname || "unknown";
+        this.lname=lname || "unknown";
+        this.age = 15;
+    }
+    prsn = new person("Tops","Tech");
+    // console.log(prsn);
+    console.log("My First name is "+prsn.fname+" and My Last name is "+prsn.lname);
+    // console.log(person("Tops","Tech"));
+
+    person.prototype.getFullName=function(){
+        console.log("My First name is "+prsn.fname+" and My Last name is "+prsn.lname+" and age is "+prsn.age);
+        // return this.fname+" "+this.lname;
+    }
+    person.prototype.getFullName();
+</script>

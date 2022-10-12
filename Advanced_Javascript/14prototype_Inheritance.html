@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function Person(fname,lname)
+    {
+        this.fname = fname;
+        this.lname = lname;
+    }
+    Person.prototype.getFullName=function(){
+        return this.fname+" "+this.lname;
+    }
+    function Student(fname,lname,schoolname,grade)
+    {
+        Person.call(this,fname,lname);
+        this.schoolname=schoolname;
+        this.grade = grade;
+    }
+    Student.prototype = new Person;
+    var std = new Student("John","Doe","Tops Tech","B");
+    console.log(std);
+    console.log(std.getFullName());
+
+</script>

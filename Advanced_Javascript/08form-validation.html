@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" align="center">
+        <tr>
+            <td>NAme:</td>
+            <td><input type="text" name="name" id="name" onblur="ValidData(this,'nameError')" onkeypress="onlyAlpha(this,'error')">
+            <span id="nameError"></span>
+            <span id="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" id="pwd" onblur="ValidData(this,'pwdError')" onkeypress="pwdCheck(this,'perror')">
+            <span id="pwdError"></span>
+            <span id="perror"></span>
+            <span id=""></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" name="email" onblur="ValidData(this,'emailError')" onkeypress="EmailCheck(this,'eerror')">
+            <span id="emailError"></span>
+            <span id="eerror"></span></td>
+        </tr>
+        <tr>
+            <td>Mobile:</td>
+            <td><input type="text" name="mobile" onblur="ValidData(this,'mobileError')" onkeypress="MobileCheck(this,'merror')">
+            <span id="mobileError"></span>
+            <span id="merror"></span>
+        </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="submit" value="submit"></td>
+        </tr>
+    </table>
+</body>
+</html>
+<script>
+    function ValidData(e,spnid)
+    {
+        if(e.value=="")
+        {
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerText = "Please Enter Value!"
+            return false;
+        }
+        else{
+            document.getElementById(spnid).innerText = "";
+        }
+
+    }
+    function onlyAlpha(e,spnid)
+    {
+        var name = /^[a-zA-Z]+$/
+        if(name.test(e.value))
+        {
+            document.getElementById(spnid).innerText = "";
+        }
+        else{
+            
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerText = "Please Enter only Characters!"
+        }
+    }
+    function pwdCheck(e,spnid)
+    {
+        var pwd = /^[a-zA-z0-9._-]{3,5}$/
+        if(pwd.test(e.value))
+        {
+            document.getElementById(spnid).innerText = "";
+        }
+        else{
+            
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerText = "Please Enter min 3 and max 5 characters!"
+        }
+    }
+    function EmailCheck(e,spnid)
+    {
+        var email = /^([a-z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z]{2,4})+$/
+        if(email.test(e.value))
+        {
+            document.getElementById(spnid).innerText = "";
+        }
+        else{
+            
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerText = "Please EnterValid Email";
+        }
+    }
+    function MobileCheck(e,spnid)
+    {
+        var mobile = /^[0-9]{10}$/
+        if(mobile.test(e.value))
+        {
+            document.getElementById(spnid).innerText = "";
+        }
+        else{
+            
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerText = "Please Enter Valid Mobile Number!";
+        }
+
+    }
+</script>
