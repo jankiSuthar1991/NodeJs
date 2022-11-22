@@ -1,0 +1,2 @@
+this is writing method of node
+This is another txt file!
